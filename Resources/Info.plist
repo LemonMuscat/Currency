@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleExecutable</key>
+  <string>CurrencyPanel</string>
+  <key>CFBundleIdentifier</key>
+  <string>local.codex.CurrencyPanel</string>
+  <key>CFBundleName</key>
+  <string>CurrencyPanel</string>
+  <key>CFBundleDisplayName</key>
+  <string>CurrencyPanel</string>
+  <key>CFBundleIconFile</key>
+  <string>AppIcon.icns</string>
+  <key>CFBundleIconName</key>
+  <string>AppIcon</string>
+  <key>CFBundleIconFiles</key>
+  <array>
+    <string>AppIcon.icns</string>
+  </array>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleSignature</key>
+  <string>CURR</string>
+  <key>NSPrincipalClass</key>
+  <string>NSApplication</string>
+  <key>LSUIElement</key>
+  <false/>
+  <key>LSApplicationCategoryType</key>
+  <string>public.app-category.finance</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0</string>
+  <key>CFBundleVersion</key>
+  <string>2</string>
+  <key>LSMinimumSystemVersion</key>
+  <string>13.0</string>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+</dict>
+</plist>

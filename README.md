@@ -53,7 +53,7 @@ CurrencyPanel은 한국 사용자가 익숙하게 보는 환율에 맞추기 위
 
 ### 설치해서 사용하기
 
-GitHub Releases에 미리 빌드된 파일이 올라와 있다면, 아래 페이지에서 `CurrencyPanel.zip` 또는 `.dmg` 파일을 다운로드하면 됩니다.
+GitHub Releases에서 최신 `CurrencyPanel.zip` 파일을 다운로드합니다.
 
 ```text
 https://github.com/LemonMuscat/Currency/releases
@@ -67,7 +67,11 @@ https://github.com/LemonMuscat/Currency/releases
 
 아직 Apple notarization을 하지 않은 빌드라면 macOS 보안 경고가 뜰 수 있습니다. 이 경우 앱을 우클릭한 뒤 **열기**를 선택하면 실행할 수 있습니다.
 
+만약 “확인되지 않은 개발자” 안내가 다시 뜨면, 시스템 설정의 **개인정보 보호 및 보안** 화면에서 앱 실행을 허용한 뒤 다시 열면 됩니다.
+
 ### 직접 빌드하기
+
+소스에서 직접 빌드하고 싶은 사용자는 아래 명령을 사용할 수 있습니다.
 
 이 프로젝트는 Xcode 프로젝트 없이 Command Line Tools와 AppKit으로 빌드합니다.
 
@@ -102,32 +106,6 @@ cd Currency
 ./scripts/build_app.sh
 open build/CurrencyPanel.app
 ```
-
-### `build/` 폴더를 GitHub에 올리지 않는 이유
-
-`build/` 폴더 안의 `CurrencyPanel.app`은 소스코드가 아니라 빌드 결과물입니다.
-
-일반적으로 GitHub 저장소에는 소스코드와 리소스, 빌드 스크립트를 올리고, 앱 실행 파일은 GitHub Releases에 별도 파일로 올립니다. 이렇게 해야 저장소가 가볍게 유지되고, 다른 사람도 소스에서 직접 빌드할 수 있습니다.
-
-추천 구조는 다음과 같습니다.
-
-- 저장소: `Sources/`, `Resources/`, `scripts/`, `README.md`
-- 로컬 빌드 결과: `build/CurrencyPanel.app`
-- 일반 사용자 다운로드: GitHub Releases의 `CurrencyPanel.zip` 또는 `.dmg`
-
-### 배포
-
-가볍게 공유하려면 앱을 zip으로 압축하면 됩니다.
-
-```sh
-./scripts/build_app.sh
-cd build
-zip -r CurrencyPanel.zip CurrencyPanel.app
-```
-
-그 다음 `CurrencyPanel.zip`을 GitHub Releases에 업로드하면 일반 사용자도 다운로드할 수 있습니다.
-
-더 자연스러운 macOS 배포를 하려면 Apple Developer ID로 서명하고 Apple notarization을 거치는 것이 좋습니다. notarization이 없으면 사용자가 처음 실행할 때 우클릭 후 **열기**를 해야 할 수 있습니다.
 
 ---
 
@@ -186,7 +164,7 @@ The top exchange cards and the calculator use the same rate snapshot, so values 
 
 ### Installation for Users
 
-If a prebuilt release is available, download it from the GitHub Releases page:
+Download the latest `CurrencyPanel.zip` file from GitHub Releases:
 
 ```text
 https://github.com/LemonMuscat/Currency/releases
@@ -201,7 +179,11 @@ Then:
 
 If the app is not notarized yet, macOS may show a security warning. In that case, right-click the app and choose **Open**.
 
+If macOS still blocks the app, open **System Settings -> Privacy & Security**, allow the app there, and launch it again.
+
 ### Build From Source
+
+Users who want to build from source can use the commands below.
 
 This project builds a native macOS AppKit app without an Xcode project.
 
@@ -236,34 +218,6 @@ cd Currency
 ./scripts/build_app.sh
 open build/CurrencyPanel.app
 ```
-
-### Why Is `build/` Not Committed?
-
-The `build/` folder contains generated files, including `CurrencyPanel.app`.
-
-Generated app bundles are usually not committed to the source repository because they can be rebuilt from the source code and may be large or platform-specific.
-
-For end users, prebuilt apps should be distributed through GitHub Releases, not committed directly into the main repository.
-
-Recommended structure:
-
-- Repository source code: `Sources/`, `Resources/`, `scripts/`, `README.md`
-- Generated local build: `build/CurrencyPanel.app`
-- Public downloadable app: GitHub Releases asset, such as `CurrencyPanel.zip` or `CurrencyPanel.dmg`
-
-### Distribution Notes
-
-For personal sharing or testing, you can zip the app bundle:
-
-```sh
-./scripts/build_app.sh
-cd build
-zip -r CurrencyPanel.zip CurrencyPanel.app
-```
-
-Then upload `CurrencyPanel.zip` to GitHub Releases.
-
-For a smoother public macOS distribution experience, the app should eventually be signed with an Apple Developer ID and notarized by Apple. Without notarization, users may need to use right-click -> Open the first time they launch it.
 
 ## Project Structure
 
